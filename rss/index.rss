@@ -1,4 +1,36 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>a_coding_story</title><description>Learning to code at Makers Academy</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Tue, 25 Aug 2015 14:33:53 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Pre-Course Week 3: It's all about Ruby!</title><description>&lt;p&gt;This week is all about practicing Ruby and finishing up our Chris Pine and Ruby Kickstart exercises. I switched up between the two just because I struggle with Mr. Pine especially when you've been hit with a cold...I mean why am I sick in summer??? But cold or not,&lt;/p&gt;</description><link>http://localhost:2368/pre-course-week-3-its-all-about-ruby/</link><guid isPermaLink="false">37f9310e-ce64-4dfa-93c5-2136a8bd4bef</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Tue, 25 Aug 2015 14:26:08 GMT</pubDate><content:encoded>&lt;p&gt;This week is all about practicing Ruby and finishing up our Chris Pine and Ruby Kickstart exercises. I switched up between the two just because I struggle with Mr. Pine especially when you've been hit with a cold...I mean why am I sick in summer??? But cold or not, I've soldiered on! &lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>a_coding_story</title><description>Learning to code at Makers Academy</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Thu, 03 Sep 2015 10:11:17 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>TDD and Red Green Refactor</title><description>&lt;h1 id="whatistddandtheredgreencycle"&gt;What is TDD and the Red Green Cycle?&lt;/h1&gt;
+
+&lt;p&gt;TDD, also known as Test Driven Development is an important part of agile development. In a nutshell, it is about writing tests before any code, making that it sure it fails, then the writing the minimal and simplest code to make it&lt;/p&gt;</description><link>http://localhost:2368/tdd-and-red-green-cycle/</link><guid isPermaLink="false">7a2ea6ea-f5e6-431c-b4a4-20da1c50178e</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Thu, 03 Sep 2015 10:10:04 GMT</pubDate><content:encoded>&lt;h1 id="whatistddandtheredgreencycle"&gt;What is TDD and the Red Green Cycle?&lt;/h1&gt;
+
+&lt;p&gt;TDD, also known as Test Driven Development is an important part of agile development. In a nutshell, it is about writing tests before any code, making that it sure it fails, then the writing the minimal and simplest code to make it pass, and refactoring the code at the very end. This process can be explained using a cycle called Red Green Refactor, see diagram below.  &lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://www.ruby-software.com/ruby-software/wp-content/uploads/2012/05/bdd-cycle3.png"&gt;&lt;/p&gt;
+
+&lt;p&gt;There are two key tests involved - Feature Tests and Unit Tests.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Feature Tests&lt;/strong&gt; tests one specific functionality e.g. such as a behaviour of a program.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Unit Tests&lt;/strong&gt; tests the capability of the individual objects in a program isolated from all other objects. &lt;/p&gt;
+
+&lt;p&gt;A Feature Test is conducted prior to the Unit test.&lt;/p&gt;
+
+&lt;h5 id="whatisred"&gt;What is red?&lt;/h5&gt;
+
+&lt;p&gt;Red means watching a test (either Feature or Unit Test) fail. We want the test to first fail because it confirms the validity of the test itself. &lt;/p&gt;
+
+&lt;p&gt;The first thing we do is perform a Feature Test and this involves writing a test for the code we wish we had. This will of course fail as we haven't written any code but this is good news! It means we can write the unit test for the components that make up this feature. Sounds weird, but we want this fail too! And this is for the same reasons as failing the Feature Test because it ensures the validity of the Unit Test. &lt;/p&gt;
+
+&lt;p&gt;Once both tests have failed in the expected way (the right errors), we can begin writing code that will pass both these tests. &lt;/p&gt;
+
+&lt;h5 id="whatisgreen"&gt;What is green?&lt;/h5&gt;
+
+&lt;p&gt;Green means watching your test PASS!! Awesome. The first thing we do is writing the minimal amount of code to pass our Unit Test. This ensure our code stays clean and concise. Once we've passed the unit test, we refactor the code relating to our unit. We run the test again to double check our refactored code passes. &lt;/p&gt;
+
+&lt;p&gt;The next step is to then write code to pass the feature test, adopting the same approach as the Unit Test above. Once again, we refactor and test at the end.&lt;/p&gt;
+
+&lt;h5 id="finalthoughts"&gt;Final thoughts...&lt;/h5&gt;
+
+&lt;p&gt;Once we've completed these steps, we have completed our program in a test-driven way. If we have done this correctly, we should have 100% coverage for our program and also the minimal amount of code possible. &lt;/p&gt;</content:encoded></item><item><title>Pre-Course Week 3: It's all about Ruby!</title><description>&lt;p&gt;This week is all about practicing Ruby and finishing up our Chris Pine and Ruby Kickstart exercises. I switched up between the two just because I struggle with Mr. Pine especially when you've been hit with a cold...I mean why am I sick in summer??? But cold or not,&lt;/p&gt;</description><link>http://localhost:2368/pre-course-week-3-its-all-about-ruby/</link><guid isPermaLink="false">37f9310e-ce64-4dfa-93c5-2136a8bd4bef</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Tue, 25 Aug 2015 14:26:08 GMT</pubDate><content:encoded>&lt;p&gt;This week is all about practicing Ruby and finishing up our Chris Pine and Ruby Kickstart exercises. I switched up between the two just because I struggle with Mr. Pine especially when you've been hit with a cold...I mean why am I sick in summer??? But cold or not, I've soldiered on! &lt;/p&gt;
 
 &lt;p&gt;I've been addicted to doing &lt;strong&gt;&lt;a href="http://www.codewars.com"&gt;Codewars&lt;/a&gt;&lt;/strong&gt; which provides code challenges in a variety of different program languages to help improve your skill and technique. The more problems you solve, the more "honors" you earn and higher you rank up in the ladder of many codewar competitors. It's great fun and the problems get really tough. There are also some extremely creative and smart solutions. When you spent hours coming up with your code to a codewar problem (aka "kata") and only realise there were others that wrote them in one line, you get stumped and amazed! But while I think code needs to be clear and concise, it's also important to write code that's can be easily read and understood. I think this makes it easier for others to work with your code and build upon it or change it if needed. I try to break the problems down into chucks first and then refactor afterwards. That's another new word for me- refactoring. This is the process of when improving the code without changing what it's intended to do. So many new things to learn and I think I'm only scratching the surface at the moment.  &lt;/p&gt;
 
