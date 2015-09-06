@@ -1,4 +1,38 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>a_coding_story</title><description>Learning to code at Makers Academy</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Thu, 03 Sep 2015 22:52:51 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>DAY 1 at Makers</title><description>&lt;p&gt;First day at Makers. It's finally here. I arrived at Makers early, full of excitement, curiosity and not knowing what the day will bring. Meeting my fellow cohort buddies was just awesome. EVERYONE is so lovely and excited to learn. We were all wondering what first day will bring? After&lt;/p&gt;</description><link>http://localhost:2368/day-1-at-makers/</link><guid isPermaLink="false">56b522d6-7cf1-49bb-a632-bd35cf79f0fb</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Thu, 03 Sep 2015 22:52:16 GMT</pubDate><content:encoded>&lt;p&gt;First day at Makers. It's finally here. I arrived at Makers early, full of excitement, curiosity and not knowing what the day will bring. Meeting my fellow cohort buddies was just awesome. EVERYONE is so lovely and excited to learn. We were all wondering what first day will bring? After all the introduction, are we going to pair-program today? What will be the challenge? What other surprises are there?&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>a_coding_story</title><description>My adventures with Makers Academy  
+
+</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Sun, 06 Sep 2015 17:48:50 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>W1: Test-Driven all the way</title><description>&lt;p&gt;First week at Makers has come to an end and it did not disappoint. It was absolutely jam-packed with learning opportunities and social activities. I had a fabulous time. &lt;/p&gt;
+
+&lt;p&gt;After Day 1, it was straight down to the business of learning &lt;a href="http://lucetzer.github.io/tdd-and-red-green-cycle/"&gt;Test Driven Development&lt;/a&gt; and Object Oriented Design which is&lt;/p&gt;</description><link>http://localhost:2368/week-1-recap/</link><guid isPermaLink="false">18ff3219-e356-477a-81e3-7d336cdc9d4f</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Sun, 06 Sep 2015 17:44:58 GMT</pubDate><content:encoded>&lt;p&gt;First week at Makers has come to an end and it did not disappoint. It was absolutely jam-packed with learning opportunities and social activities. I had a fabulous time. &lt;/p&gt;
+
+&lt;p&gt;After Day 1, it was straight down to the business of learning &lt;a href="http://lucetzer.github.io/tdd-and-red-green-cycle/"&gt;Test Driven Development&lt;/a&gt; and Object Oriented Design which is all about modelling objects and how they will send messages to each other. Everything we code from now on will be tested. It is the best way to ensure our code works and is clean, concise and insured! It is also the best industry practice and I can understand why. &lt;/p&gt;
+
+&lt;p&gt;This has been our daily routine so far:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Stand-ups at 9am sharp&lt;/li&gt;
+&lt;li&gt;Pair-program with a different partner everyday on our project&lt;/li&gt;
+&lt;li&gt;Lunch&lt;/li&gt;
+&lt;li&gt;Optional meditation class at 2pm&lt;/li&gt;
+&lt;li&gt;Afternoon stand-ups&lt;/li&gt;
+&lt;li&gt;Pair-program again until late&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I love it so far and you get into the rhythm of this pretty quickly. There are also other activities like ping-pong and yoga on selected days. It helps us to clear our heads and not be desk-bound all day. Looking after our mental health is also very important so we have energy and focus to keep going.  &lt;/p&gt;
+
+&lt;h5 id="thisweeksprojectborisbikes"&gt;This week's project: Boris Bikes&lt;/h5&gt;
+
+&lt;p&gt;This week's project was to write a program for a bike hire system. Bikes are located at docking stations throughout the city and anyone can hire them for a small fee. Our system will allow bikes to be released, returned and ensure any reported broken bikes can not be released. After all we want happy and satisfied customers. &lt;/p&gt;
+
+&lt;p&gt;&lt;left&gt;&lt;img src="http://www.fodors.com/wire/5--melbournebikeshare.jpg"&gt;&lt;/left&gt; &lt;br&gt;
+&lt;em&gt;Boris Bikes in Melbourne&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The very first thing we do is understand the users stories which is important. User stories helps us identify objects and their responsibilities. We need to decide what are their behaviours and who do they need to send messages to in order for the system to work. What amazes me is how fun this is. We are actually modelling real life things, processes and situations. All the pre-course work provides a good foundation to start applying our Ruby methods in this way. It's like that was the toolbox and they are what we need to build our program. &lt;/p&gt;
+
+&lt;p&gt;Was the project hard? Yes, but not impossible. The rspec testing was all new to us as well as the rspec syntax but this is just part of the journey and we are in this playground so we can experiment and learn. Pair-programming was also great. It's like like ping-pong and having a buddy to bounce with. I've pair-programmed with three partners this week and I've learnt so much from each of them. Much love to Yana, Harry and Harriet. You guys rock my world! Yana is from Moscow and I am just in love with her accent. Her english is fantastic and she very thorough, methodical and quick thinker. Harry is just a ball of fun to analyse problems with. He will suddenly come up with an idea and BOOM, it works it's magic. Harriet is also amazing and we just never quit at the problem. It's like we are on the battlefield and we just soldier through. I'm so thankful they are in this cohort! Thank you so much, you guys rocked my world this week! &lt;/p&gt;
+
+&lt;p&gt;The other thing I want to mention is our stand-ups. We are split into different groups and twice a day, the group meets up. This is where we get the opportunity to ask questions on anything we don't understand. Our group coach then goes through it all with us in detail. It's a fantastic session and the coaches are just wonderful. They are able to explain concepts in a way that's easy to digest. I had Samm this week and I am in awe of at the way he explains things. Not only is he extremely knowledgable but he is also very patient and approachable. Lucky us!&lt;/p&gt;
+
+&lt;p&gt;In other news, there's been a lot of pub nights. At this rate, I'm seriously going to get a beer gut. I think I need to just go on Fridays but even as I type this, I'm not confident that it will happen. :)&lt;/p&gt;</content:encoded></item><item><title>DAY 1 at Makers</title><description>&lt;p&gt;First day at Makers. It's finally here. I arrived at Makers early, full of excitement, curiosity and not knowing what the day will bring. Meeting my fellow cohort buddies was just awesome. EVERYONE is so lovely and excited to learn. We were all wondering what first day will bring? After&lt;/p&gt;</description><link>http://localhost:2368/day-1-at-makers/</link><guid isPermaLink="false">56b522d6-7cf1-49bb-a632-bd35cf79f0fb</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Thu, 03 Sep 2015 22:52:16 GMT</pubDate><content:encoded>&lt;p&gt;First day at Makers. It's finally here. I arrived at Makers early, full of excitement, curiosity and not knowing what the day will bring. Meeting my fellow cohort buddies was just awesome. EVERYONE is so lovely and excited to learn. We were all wondering what first day will bring? After all the introduction, are we going to pair-program today? What will be the challenge? What other surprises are there?&lt;/p&gt;
 
 &lt;p&gt;But first day was not what I expected. There was no coding! It was just a day dedicated to getting to know each other, meeting our coaches and understanding how the course will run for the next 12 weeks. There are around 34 people in the cohort, the biggest ever at Makers and we all played this name game where that allowed us all to remember EVERYONE'S name. It was brilliant and I won't spoil it for anyone who is thinking about joining Makers (just do it! :D). &lt;/p&gt;
 
@@ -28,17 +62,17 @@
 
 &lt;h5 id="whatisred"&gt;What is red?&lt;/h5&gt;
 
-&lt;p&gt;Red means watching a test (either Feature or Unit Test) fail. We want the test to first fail because it confirms the validity of the test itself. &lt;/p&gt;
+&lt;p&gt;Red means watching a test (either feature or unit test) fail. We want the test to first fail because it confirms the validity of the test itself. &lt;/p&gt;
 
-&lt;p&gt;The first thing we do is perform a Feature Test and this involves writing a test for the code we wish we had. This will of course fail as we haven't written any code but this is good news! It means we can write the unit test for the components that make up this feature. Sounds weird, but we want this fail too! And this is for the same reasons as failing the Feature Test because it ensures the validity of the Unit Test. There may be multiple unit tests for each feature test. &lt;/p&gt;
+&lt;p&gt;The first thing we do is perform a feature test and this involves writing a test for the code we wish we had. This will of course fail as we haven't written any code but this is good news! It means we can write the unit test for the components that make up this feature. Sounds weird, but we also want this to fail too! And this is for the same reasons as failing the feature test because it ensures the validity of the unit test. There may be multiple unit tests for each feature test. &lt;/p&gt;
 
 &lt;p&gt;Once both tests have failed in the expected way (the right errors), we can begin writing code that will pass both these tests. &lt;/p&gt;
 
 &lt;h5 id="whatisgreen"&gt;What is green?&lt;/h5&gt;
 
-&lt;p&gt;Green means watching your test PASS!! Awesome. The first thing we do is writing the minimal amount of code to pass our Unit Test. This ensure our code stays clean and concise. Once we've passed the unit test, we refactor the code relating to our unit. We run the test again to double check our refactored code passes. &lt;/p&gt;
+&lt;p&gt;Green means watching your test PASS!! Awesome. The first thing we do is writing the minimal amount of code to pass our unit test. This ensures our code stays clean and concise. Once we've passed the unit test, we refactor the code relating to our unit. We run the test again to double check our refactored code passes. &lt;/p&gt;
 
-&lt;p&gt;The next step is to then write code to pass the feature test, adopting the same approach as the Unit Test above. Once again, we refactor and test at the end.&lt;/p&gt;
+&lt;p&gt;The next step is to then write code to pass the feature test, adopting the same approach as the unit test above. Once again, we refactor and test at the end.&lt;/p&gt;
 
 &lt;h5 id="finalthoughts"&gt;Final thoughts...&lt;/h5&gt;
 
