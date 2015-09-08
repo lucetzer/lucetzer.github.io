@@ -1,6 +1,72 @@
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>a_coding_story</title><description>My adventures with Makers Academy  
 
-</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Tue, 08 Sep 2015 10:34:41 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>SOLID: Dependency Inversion</title><description>&lt;p&gt;Describe the SOLID principle of dependency inversion, by giving an example of dependency injection with a module and a class. How does DI improve the reusability of code?&lt;/p&gt;
+</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Tue, 08 Sep 2015 21:31:20 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Weekend Challenge 1: Airport</title><description>&lt;p&gt;The coding doesn't stop just because we've hit the weekend. Every Friday at 5pm, we get a weekend challenge that aims to test our knowledge on the week's learnings. The last weekend, I spent building a program that will control the flow of planes at an airport. The features we&lt;/p&gt;</description><link>http://localhost:2368/weekend-challenge-1/</link><guid isPermaLink="false">a4e52186-ced0-48fc-8806-8dc8126fbb5e</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Tue, 08 Sep 2015 21:31:07 GMT</pubDate><content:encoded>&lt;p&gt;The coding doesn't stop just because we've hit the weekend. Every Friday at 5pm, we get a weekend challenge that aims to test our knowledge on the week's learnings. The last weekend, I spent building a program that will control the flow of planes at an airport. The features we were testing and building are that:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;it allows pilots to land planes and take off from the airport &lt;/li&gt;
+&lt;li&gt;it allows air traffic controller to prevent planes from landing when it's full&lt;/li&gt;
+&lt;li&gt;when the weather is stormy, it allows the air traffic controller to prevent planes from landing or taking off. &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The challenge allowed me to go through the process on my without pair-programming which is also a good change. During the week, we spend a lot of time exploring the week's challenge and trying out different solutions. The weekend actually gives me the space to absorb the learnings and put it into practice on my own. I started by thinking about the problem and the user stories and how to organise my classes. It can be tricky not to overthink the problem and making it harder for yourself. Always start with the Minimum Viable Product (MVP) and listing what the objects are and their responsibilities. You can then extend it from there. &lt;/p&gt;
+
+&lt;p&gt;The other interesting thing was testing my weather method which uses an in-built ruby method &lt;code&gt;rand&lt;/code&gt;. It was the only test that wasn't passing &lt;a href="https://coveralls.io/"&gt;Coveralls&lt;/a&gt;- a platform that checks how much of your code is covered by your tests. I wasn't sure how to test random itself. The tricky thing with testing the random method is that in order to test if it's working properly, you have to know what to expect, and that's not possible if the random number is generated every time the test is run. &lt;/p&gt;
+
+&lt;p&gt;I asked my cohort buddy Yana for some advice and she taught me how to test random using &lt;code&gt;srand&lt;/code&gt; which lets you pick the seed number so you can generate a sequence of numbers that seems random, but is actually predictable. Here is an example:&lt;/p&gt;
+
+&lt;p&gt;First you seed the number which just gives you a list of random numbers&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;srand(1234)
+=&amp;gt; 244615853692375567264193332865866353245
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then the next rand method you use will use this seed number and generate a seeded sequence. So that when you use the rand on a number, it will give you the same number when you use it. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rand
+=&amp;gt; 0.1915194503788923
+rand
+=&amp;gt; 0.6221087710398319
+rand(10)
+=&amp;gt; 4
+rand(400)
+=&amp;gt; 152
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And to show that you can run the same sequence again...    &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rand(1234)
+=&amp;gt; 1234
+rand
+=&amp;gt; 0.1915194503788923
+rand
+=&amp;gt; 0.6221087710398319
+rand(10)
+=&amp;gt; 4
+rand(400)
+=&amp;gt; 152
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The seed you set works only once, so the next time you call &lt;code&gt;rand&lt;/code&gt;, it will not use your specified seed number.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rand(1234)
+=&amp;gt; 1234
+rand
+=&amp;gt; 0.1915194503788923
+rand
+=&amp;gt; 0.6221087710398319
+rand(10)
+=&amp;gt; 4
+rand(400)
+=&amp;gt; 152
+rand(400)
+=&amp;gt; 144
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Anyway that's my attempt at explaining &lt;code&gt;srand&lt;/code&gt;!&lt;/p&gt;
+
+&lt;p&gt;On Monday, one of the Senior cohort memebers conducted a code review with us and gave us tips on how we can improve our Airport program. Our coaches will also complete this. It was really helpful to discuss the code in detail and look for opportunities to refactor our code.&lt;/p&gt;
+
+&lt;p&gt;This week we are building the battleships game so I will post a recap later in the week!&lt;/p&gt;</content:encoded></item><item><title>SOLID: Dependency Inversion</title><description>&lt;p&gt;Describe the SOLID principle of dependency inversion, by giving an example of dependency injection with a module and a class. How does DI improve the reusability of code?&lt;/p&gt;
 
 &lt;h6 id="whatisthesolidprincipleofdependencyinversion"&gt;What is the SOLID principle of dependency inversion?&lt;/h6&gt;
 

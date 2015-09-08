@@ -1,0 +1,222 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Weekend Challenge 1: Airport</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=020f9d8911">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+
+    <link rel="canonical" href="index.html">
+    
+    <meta property="og:site_name" content="a_coding_story">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Weekend Challenge 1: Airport">
+    <meta property="og:description" content="The coding doesn't stop just because we've hit the weekend. Every Friday at 5pm, we get a weekend challenge that aims to test our knowledge on the week's learnings. The last weekend, I spent building a program that will control...">
+    <meta property="og:url" content="http://localhost:2368/weekend-challenge-1/">
+    <meta property="article:published_time" content="2015-09-08T21:31:07.505Z">
+    <meta property="article:modified_time" content="2015-09-08T21:31:07.503Z">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Weekend Challenge 1: Airport">
+    <meta name="twitter:description" content="The coding doesn't stop just because we've hit the weekend. Every Friday at 5pm, we get a weekend challenge that aims to test our knowledge on the week's learnings. The last weekend, I spent building a program that will control...">
+    <meta name="twitter:url" content="http://localhost:2368/weekend-challenge-1/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "a_coding_story",
+    "author": {
+        "@type": "Person",
+        "name": "Lucy Fang",
+        "image": "http://localhost:2368/content/images/2015/08/Screen-Shot-2015-08-06-at-9-00-30-pm.png",
+        "url": "http://localhost:2368/author/lucy",
+        "sameAs": null,
+        "description": null
+    },
+    "headline": "Weekend Challenge 1: Airport",
+    "url": "http://localhost:2368/weekend-challenge-1/",
+    "datePublished": "2015-09-08T21:31:07.505Z",
+    "dateModified": "2015-09-08T21:31:07.503Z",
+    "description": "The coding doesn&#x27;t stop just because we&#x27;ve hit the weekend. Every Friday at 5pm, we get a weekend challenge that aims to test our knowledge on the week&#x27;s learnings. The last weekend, I spent building a program that will control..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.6">
+    <link rel="alternate" type="application/rss+xml" title="a_coding_story" href="../rss/index.html">
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="index.html#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="http://lucetzer.github.io">Home</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="../rss/index.rss">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+            <a class="menu-button icon-menu" href="index.html#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Weekend Challenge 1: Airport</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2015-09-08">08 September 2015</time> 
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>The coding doesn't stop just because we've hit the weekend. Every Friday at 5pm, we get a weekend challenge that aims to test our knowledge on the week's learnings. The last weekend, I spent building a program that will control the flow of planes at an airport. The features we were testing and building are that:</p>
+
+<ul>
+<li>it allows pilots to land planes and take off from the airport </li>
+<li>it allows air traffic controller to prevent planes from landing when it's full</li>
+<li>when the weather is stormy, it allows the air traffic controller to prevent planes from landing or taking off. </li>
+</ul>
+
+<p>The challenge allowed me to go through the process on my without pair-programming which is also a good change. During the week, we spend a lot of time exploring the week's challenge and trying out different solutions. The weekend actually gives me the space to absorb the learnings and put it into practice on my own. I started by thinking about the problem and the user stories and how to organise my classes. It can be tricky not to overthink the problem and making it harder for yourself. Always start with the Minimum Viable Product (MVP) and listing what the objects are and their responsibilities. You can then extend it from there. </p>
+
+<p>The other interesting thing was testing my weather method which uses an in-built ruby method <code>rand</code>. It was the only test that wasn't passing <a href="https://coveralls.io/">Coveralls</a>- a platform that checks how much of your code is covered by your tests. I wasn't sure how to test random itself. The tricky thing with testing the random method is that in order to test if it's working properly, you have to know what to expect, and that's not possible if the random number is generated every time the test is run. </p>
+
+<p>I asked my cohort buddy Yana for some advice and she taught me how to test random using <code>srand</code> which lets you pick the seed number so you can generate a sequence of numbers that seems random, but is actually predictable. Here is an example:</p>
+
+<p>First you seed the number which just gives you a list of random numbers</p>
+
+<pre><code>srand(1234)
+=&gt; 244615853692375567264193332865866353245
+</code></pre>
+
+<p>Then the next rand method you use will use this seed number and generate a seeded sequence. So that when you use the rand on a number, it will give you the same number when you use it. </p>
+
+<pre><code>rand
+=&gt; 0.1915194503788923
+rand
+=&gt; 0.6221087710398319
+rand(10)
+=&gt; 4
+rand(400)
+=&gt; 152
+</code></pre>
+
+<p>And to show that you can run the same sequence again...    </p>
+
+<pre><code>rand(1234)
+=&gt; 1234
+rand
+=&gt; 0.1915194503788923
+rand
+=&gt; 0.6221087710398319
+rand(10)
+=&gt; 4
+rand(400)
+=&gt; 152
+</code></pre>
+
+<p>The seed you set works only once, so the next time you call <code>rand</code>, it will not use your specified seed number.</p>
+
+<pre><code>rand(1234)
+=&gt; 1234
+rand
+=&gt; 0.1915194503788923
+rand
+=&gt; 0.6221087710398319
+rand(10)
+=&gt; 4
+rand(400)
+=&gt; 152
+rand(400)
+=&gt; 144
+</code></pre>
+
+<p>Anyway that's my attempt at explaining <code>srand</code>!</p>
+
+<p>On Monday, one of the Senior cohort memebers conducted a code review with us and gave us tips on how we can improve our Airport program. Our coaches will also complete this. It was really helpful to discuss the code in detail and look for opportunities to refactor our code.</p>
+
+<p>This week we are building the battleships game so I will post a recap later in the week!</p>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="../author/lucy/" style="background-image: url(../content/images/2015/08/Screen-Shot-2015-08-06-at-9-00-30-pm.png)"><span class="hidden">Lucy Fang's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="../author/lucy/">Lucy Fang</a></h4>
+
+                    <p>Read <a href="../author/lucy/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">London</span>
+                    
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=Weekend%20Challenge%201%3A%20Airport&amp;url=http://localhost:2368/weekend-challenge-1/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/weekend-challenge-1/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:2368/weekend-challenge-1/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story prev no-cover" href="../solid-dependency-inversion/">
+        <section class="post">
+            <h2>SOLID: Dependency Inversion</h2>
+            <p>Describe the SOLID principle of dependency inversion, by giving an example of dependency injection with a module and a…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="../">a_coding_story</a> © 2015</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <script src="../public/jquery.js?v=020f9d8911"></script>
+
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=020f9d8911"></script>
+    <script type="text/javascript" src="../assets/js/index.js?v=020f9d8911"></script>
+
+</body>
