@@ -1,0 +1,219 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Inheritance vs Composition</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=020f9d8911">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+
+    <link rel="canonical" href="index.html">
+    
+    <meta property="og:site_name" content="a_coding_story">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Inheritance vs Composition">
+    <meta property="og:description" content="What is the difference between Inheritance and Composition in Object-oriented programming? Why might using Composition be a better way to go? Inheritance Inheritance is used when one class wishes to get all its features from a parent class. Syntactically, this...">
+    <meta property="og:url" content="http://localhost:2368/inheritance-vs-composition/">
+    <meta property="article:published_time" content="2015-09-10T23:15:05.914Z">
+    <meta property="article:modified_time" content="2015-09-10T23:15:05.913Z">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Inheritance vs Composition">
+    <meta name="twitter:description" content="What is the difference between Inheritance and Composition in Object-oriented programming? Why might using Composition be a better way to go? Inheritance Inheritance is used when one class wishes to get all its features from a parent class. Syntactically, this...">
+    <meta name="twitter:url" content="http://localhost:2368/inheritance-vs-composition/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "a_coding_story",
+    "author": {
+        "@type": "Person",
+        "name": "Lucy Fang",
+        "image": "http://localhost:2368/content/images/2015/08/Screen-Shot-2015-08-06-at-9-00-30-pm.png",
+        "url": "http://localhost:2368/author/lucy",
+        "sameAs": null,
+        "description": null
+    },
+    "headline": "Inheritance vs Composition",
+    "url": "http://localhost:2368/inheritance-vs-composition/",
+    "datePublished": "2015-09-10T23:15:05.914Z",
+    "dateModified": "2015-09-10T23:15:05.913Z",
+    "description": "What is the difference between Inheritance and Composition in Object-oriented programming? Why might using Composition be a better way to go? Inheritance Inheritance is used when one class wishes to get all its features from a parent class. Syntactically, this..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.6">
+    <link rel="alternate" type="application/rss+xml" title="a_coding_story" href="../rss/index.html">
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="index.html#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="http://lucetzer.github.io">Home</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="../rss/index.rss">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+            <a class="menu-button icon-menu" href="index.html#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Inheritance vs Composition</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2015-09-11">11 September 2015</time> 
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>What is the difference between Inheritance and Composition in Object-oriented programming? Why might using Composition be a better way to go?</p>
+
+<h6 id="inheritance">Inheritance</h6>
+
+<p>Inheritance is used when one class wishes to get all its features from a parent class. Syntactically, this is achieved using "&lt;". In Ruby, each class can only inherit once from another class. The example below shows a Cat class and the breed, Persian class inheriting form the cat class and getting it's initialization and make_noise methods. While the Persian class has inherited the Cat class, it can also make additional changes such as adding colour when it gets instantiated in addition to having four legs.  </p>
+
+<pre><code>class Cat
+  def initialize
+    @legs = 4
+  end
+
+  def make_noise
+    "Meow!"
+  end
+end
+
+class Persian &lt; Cat
+ def initialize(color)
+   @color = black
+   super()
+end
+
+cat = Cat.new
+persian = Persian.new
+
+cat.make_noise
+=&gt; "Meow!"
+persian.make_noise
+=&gt; "Meow!"
+</code></pre>
+
+<p>The downside of using inheritance is that it violates the encapsulation principle. You are essentially bonding one class to another so it is dependent on the parent class and it's behaviours. These behaviours may change in the future and may not be relevant to the class that is inheriting from it. It can also be hard to test classes that reuse code from the parent class. </p>
+
+<h6 id="composition">Composition</h6>
+
+<p>While inheritance can be useful, you can achieve the same thing by using other classes and modules. They package of methods that can be used by other classes. The main difference between classes and modules is that modules can't be instantiated but can be included easily in other classes to be used. Below is an example of using classes for the battleships game. The player is able to create a board and access board's method receive_ship.  </p>
+
+<pre><code> require_relative 'board'
+
+ class Board
+   attr_reader :ship_array
+
+   def initialize
+     @ship_array = []
+    end
+
+   def receive_ship(ship)
+     ship_array &lt;&lt; ship
+   end
+ end
+
+
+ class Player
+   attr_reader :board
+
+   def initialize
+     @board = Board.new
+   end
+
+   def place(ship)
+     board.receive_ship(ship)
+   end
+ end
+</code></pre>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="../author/lucy/" style="background-image: url(../content/images/2015/08/Screen-Shot-2015-08-06-at-9-00-30-pm.png)"><span class="hidden">Lucy Fang's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="../author/lucy/">Lucy Fang</a></h4>
+
+                    <p>Read <a href="../author/lucy/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">London</span>
+                    
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=Inheritance%20vs%20Composition&amp;url=http://localhost:2368/inheritance-vs-composition/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/inheritance-vs-composition/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:2368/inheritance-vs-composition/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story prev no-cover" href="../weekend-challenge-1/">
+        <section class="post">
+            <h2>Weekend Challenge 1: Airport</h2>
+            <p>The coding doesn't stop just because we've hit the weekend. Every Friday at 5pm, we get a weekend challenge…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="../">a_coding_story</a> © 2015</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <script src="../public/jquery.js?v=020f9d8911"></script>
+
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=020f9d8911"></script>
+    <script type="text/javascript" src="../assets/js/index.js?v=020f9d8911"></script>
+
+</body>

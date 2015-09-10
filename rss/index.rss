@@ -1,6 +1,73 @@
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>a_coding_story</title><description>My adventures with Makers Academy  
 
-</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Tue, 08 Sep 2015 22:43:23 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Weekend Challenge 1: Airport</title><description>&lt;p&gt;The coding doesn't stop just because we've hit the weekend. Every Friday at 5pm, we get a weekend challenge that aims to test our knowledge on the week's learnings. The last weekend, I built a program that will control the flow of planes at an airport. The features include:&lt;/p&gt;
+</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Thu, 10 Sep 2015 23:18:22 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Inheritance vs Composition</title><description>&lt;p&gt;What is the difference between Inheritance and Composition in Object-oriented programming? Why might using Composition be a better way to go?&lt;/p&gt;
+
+&lt;h6 id="inheritance"&gt;Inheritance&lt;/h6&gt;
+
+&lt;p&gt;Inheritance is used when one class wishes to get all its features from a parent class. Syntactically, this is achieved using "&amp;lt;". In Ruby, each class can only&lt;/p&gt;</description><link>http://localhost:2368/inheritance-vs-composition/</link><guid isPermaLink="false">1857892d-c968-414b-923b-630dfec9839c</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Thu, 10 Sep 2015 23:15:05 GMT</pubDate><content:encoded>&lt;p&gt;What is the difference between Inheritance and Composition in Object-oriented programming? Why might using Composition be a better way to go?&lt;/p&gt;
+
+&lt;h6 id="inheritance"&gt;Inheritance&lt;/h6&gt;
+
+&lt;p&gt;Inheritance is used when one class wishes to get all its features from a parent class. Syntactically, this is achieved using "&amp;lt;". In Ruby, each class can only inherit once from another class. The example below shows a Cat class and the breed, Persian class inheriting form the cat class and getting it's initialization and make_noise methods. While the Persian class has inherited the Cat class, it can also make additional changes such as adding colour when it gets instantiated in addition to having four legs.  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Cat
+  def initialize
+    @legs = 4
+  end
+
+  def make_noise
+    "Meow!"
+  end
+end
+
+class Persian &amp;lt; Cat
+ def initialize(color)
+   @color = black
+   super()
+end
+
+cat = Cat.new
+persian = Persian.new
+
+cat.make_noise
+=&amp;gt; "Meow!"
+persian.make_noise
+=&amp;gt; "Meow!"
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The downside of using inheritance is that it violates the encapsulation principle. You are essentially bonding one class to another so it is dependent on the parent class and it's behaviours. These behaviours may change in the future and may not be relevant to the class that is inheriting from it. It can also be hard to test classes that reuse code from the parent class. &lt;/p&gt;
+
+&lt;h6 id="composition"&gt;Composition&lt;/h6&gt;
+
+&lt;p&gt;While inheritance can be useful, you can achieve the same thing by using other classes and modules. They package of methods that can be used by other classes. The main difference between classes and modules is that modules can't be instantiated but can be included easily in other classes to be used. Below is an example of using classes for the battleships game. The player is able to create a board and access board's method receive_ship.  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; require_relative 'board'
+
+ class Board
+   attr_reader :ship_array
+
+   def initialize
+     @ship_array = []
+    end
+
+   def receive_ship(ship)
+     ship_array &amp;lt;&amp;lt; ship
+   end
+ end
+
+
+ class Player
+   attr_reader :board
+
+   def initialize
+     @board = Board.new
+   end
+
+   def place(ship)
+     board.receive_ship(ship)
+   end
+ end
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Weekend Challenge 1: Airport</title><description>&lt;p&gt;The coding doesn't stop just because we've hit the weekend. Every Friday at 5pm, we get a weekend challenge that aims to test our knowledge on the week's learnings. The last weekend, I built a program that will control the flow of planes at an airport. The features include:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;it&lt;/li&gt;&lt;/ul&gt;</description><link>http://localhost:2368/weekend-challenge-1/</link><guid isPermaLink="false">a4e52186-ced0-48fc-8806-8dc8126fbb5e</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Tue, 08 Sep 2015 21:31:07 GMT</pubDate><content:encoded>&lt;p&gt;The coding doesn't stop just because we've hit the weekend. Every Friday at 5pm, we get a weekend challenge that aims to test our knowledge on the week's learnings. The last weekend, I built a program that will control the flow of planes at an airport. The features include:&lt;/p&gt;
@@ -67,15 +134,11 @@ rand(400)
 
 &lt;p&gt;Anyway that's my attempt at explaining &lt;code&gt;srand&lt;/code&gt;!&lt;/p&gt;
 
-&lt;p&gt;On Monday, one of the Senior cohort memebers conducted a code review with us and gave us tips on how we can improve our Airport program. Our coaches will also complete this. It was really helpful to discuss the code in detail and look for opportunities to refactor our code.&lt;/p&gt;
+&lt;p&gt;On Monday, one of the Senior cohort members conducted a code review with us and gave us tips on how we can improve our Airport program. Our coaches will also complete this. It was really helpful to discuss the code in detail and look for opportunities to refactor our code.&lt;/p&gt;
 
 &lt;p&gt;This week we are building the battleships game so I will post a recap later in the week!&lt;/p&gt;</content:encoded></item><item><title>SOLID: Dependency Inversion</title><description>&lt;p&gt;Describe the SOLID principle of dependency inversion, by giving an example of dependency injection with a module and a class. How does DI improve the reusability of code?&lt;/p&gt;
 
-&lt;h6 id="whatisthesolidprincipleofdependencyinversion"&gt;What is the SOLID principle of dependency inversion?&lt;/h6&gt;
-
-&lt;p&gt;The last SOLID principle is called dependency inversion and it refers to a specific&lt;/p&gt;</description><link>http://localhost:2368/solid-dependency-inversion/</link><guid isPermaLink="false">d15fab4d-333a-4ee2-b8c4-754f8c6a80cd</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Tue, 08 Sep 2015 10:32:20 GMT</pubDate><content:encoded>&lt;p&gt;Describe the SOLID principle of dependency inversion, by giving an example of dependency injection with a module and a class. How does DI improve the reusability of code?&lt;/p&gt;
-
-&lt;h6 id="whatisthesolidprincipleofdependencyinversion"&gt;What is the SOLID principle of dependency inversion?&lt;/h6&gt;
+&lt;p&gt;The last SOLID principle is called dependency inversion and it refers to a specific form of decoupling software modules. It has two&lt;/p&gt;</description><link>http://localhost:2368/solid-dependency-inversion/</link><guid isPermaLink="false">d15fab4d-333a-4ee2-b8c4-754f8c6a80cd</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Tue, 08 Sep 2015 10:32:20 GMT</pubDate><content:encoded>&lt;p&gt;Describe the SOLID principle of dependency inversion, by giving an example of dependency injection with a module and a class. How does DI improve the reusability of code?&lt;/p&gt;
 
 &lt;p&gt;The last SOLID principle is called dependency inversion and it refers to a specific form of decoupling software modules. It has two parts:&lt;/p&gt;
 
