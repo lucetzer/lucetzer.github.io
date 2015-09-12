@@ -1,6 +1,144 @@
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>a_coding_story</title><description>My adventures with Makers Academy  
 
-</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Thu, 10 Sep 2015 23:18:22 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Inheritance vs Composition</title><description>&lt;p&gt;What is the difference between Inheritance and Composition in Object-oriented programming? Why might using Composition be a better way to go?&lt;/p&gt;
+</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Sat, 12 Sep 2015 10:53:06 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Blocks, Procs and Lambdas</title><description>&lt;p&gt;Blocks, procs and lambdas are ways we can group code that we wish to run. &lt;/p&gt;
+
+&lt;p&gt;A &lt;strong&gt;block&lt;/strong&gt; is a function and usually represented in curly braces. It is NOT an object and needs to be called by a method For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; { puts "Print me" } =&amp;gt; Syntax Error
+
+ [1,2,3]&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/blocks-procs-and-lambdas/</link><guid isPermaLink="false">13ee4767-16e0-49dd-92cf-045b0aa75fd6</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Sat, 12 Sep 2015 10:52:02 GMT</pubDate><content:encoded>&lt;p&gt;Blocks, procs and lambdas are ways we can group code that we wish to run. &lt;/p&gt;
+
+&lt;p&gt;A &lt;strong&gt;block&lt;/strong&gt; is a function and usually represented in curly braces. It is NOT an object and needs to be called by a method For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; { puts "Print me" } =&amp;gt; Syntax Error
+
+ [1,2,3].each { |x| puts x*2 }
+ =&amp;gt; 2
+    4
+    6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A &lt;strong&gt;proc&lt;/strong&gt; is a reusable block saved as an object so that can be passed into other methods. It is created using Proc.new {} and is an instance of the Proc class. Below is the same example but using a proc and passing it into the each method. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; p = Proc.new { |x| puts x*2 }
+ [1,2,3].each(&amp;amp;p)    =&amp;gt; '&amp;amp;' tells ruby to turn the proc into a block 
+ 2
+ 4
+ 6
+
+ p.class 
+ =&amp;gt; Proc             =&amp;gt; A proc is an instance of the Proc class
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; proc = Proc.new { puts "Hello World" }
+ proc.call
+ "Hello World"
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Unlike blocks, multiple procs can be passed in as arguments. It will discard any additional proc arguments not given e.g. proc3 in the example below.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; def multiple_procs(proc1, proc2, proc3)
+   proc1.call
+   proc2.call
+ end
+
+ a = Proc.new { puts "First proc" }
+ b = Proc.new { puts "Second proc" }
+
+ multiple_procs(a,b)
+ "First proc"
+ "Second proc"
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A &lt;strong&gt;lambda&lt;/strong&gt; is a Proc object but checks the number of arguments and will throw an error if the exact number of arguments is not given. Examples below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lam = lambda { |x| puts x*2 }
+lam.call(2)
+4
+lam.call(2,4) =&amp;gt; Argument Error: wrong number of arguments (2 for 1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The other difference between procs and lambdas is they treat the '&lt;strong&gt;return&lt;/strong&gt;' keyword differently. A ‘return’ inside of a lambda triggers the code right outside of the lambda code. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def lambda_test
+  lam = lambda { return }
+  lam.call
+  puts "Print me"
+end
+
+lambda_test
+"Print me"
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A ‘return’ inside of a proc triggers the code outside of the method where the proc is being executed. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def proc_test
+  proc = Proc.new { return }
+  proc.call
+  puts "Hello world"
+end
+
+proc_test                 # calling proc_test prints nothing
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Ruby Gems</title><description>&lt;p&gt;&lt;strong&gt;Gems&lt;/strong&gt; are libraries made up out of Ruby code and packaged up to run on any platform that Ruby runs on. Each gem has a name, version and contains code, documentation and gemspec. The gem can be easily downloaded and installed on your computer and will be available for you&lt;/p&gt;</description><link>http://localhost:2368/ruby-gems/</link><guid isPermaLink="false">62dbf4a6-6f2d-4922-888e-66cd29f54227</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Sat, 12 Sep 2015 10:51:48 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;Gems&lt;/strong&gt; are libraries made up out of Ruby code and packaged up to run on any platform that Ruby runs on. Each gem has a name, version and contains code, documentation and gemspec. The gem can be easily downloaded and installed on your computer and will be available for you to use in every program you write. Rubygems.org is the most popular repository of “gems” for the Ruby language.&lt;/p&gt;
+
+&lt;p&gt;An example of a Ruby gem is &lt;a href="https://rubygems.org/gems/byebug/versions/6.0.2"&gt;Byebug&lt;/a&gt; which allows you to see what is going on inside a Ruby program while it executes and offers many of the traditional debugging features such as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Stepping - running your program one line at a time.&lt;/li&gt;
+&lt;li&gt;Breaking - pausing the program at some event or specified instruction, to examine the current state.&lt;/li&gt;
+&lt;li&gt;Evaluating: Basic read–eval–print loop (REPL) functionality&lt;/li&gt;
+&lt;li&gt;Tracking: Keeping track of the different values of your variables or the different lines executed by your program. &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The below example shows you how to use byebug in code. Here's method that takes a string and returns an array whose keys are all the downcased words in the string, and values are number of times these words were seen. To use the byebug gem, you will need to require it at the beginning of the method. You can then insert 'byebug' where you want to track your code. &lt;/p&gt;
+
+&lt;p&gt;require 'byebug'&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def word_count(string)
+  separate_words = string.downcase.split
+  words_counted = Hash.new(0)
+  separate_words.each { |word| 
+    words_counted.store(word, words_counted[word] + 1) }
+  words_counted
+  byebug
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;end&lt;/p&gt;
+
+&lt;p&gt;word_count "The dog and the cat"&lt;/p&gt;
+
+&lt;p&gt;Run this code in Terminal and you can see what each line of code is returning. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[12, 21] in 3_hashes.rb
+  12: def word_count(string)
+  13:   separate_words = string.downcase.split
+  14:   words_counted = Hash.new(0)
+  15:   separate_words.each { |word| 
+        words_counted.store(word,   words_counted[word] + 1) }
+  16:   words_counted
+  17:   byebug 
+  =&amp;gt; 18: end
+  19: 
+  20: word_count "The dog and the cat"
+  21: 
+  (byebug) separate_words
+    ["the", "dog", "and", "the", "cat"]
+  (byebug) words_counted = Hash.new(0)
+    {}
+  (byebug) separate_words.each { |word| 
+  words_counted.store(word, words_counted[word] + 1) }
+    ["the", "dog", "and", "the", "cat"]
+  (byebug) words_counted
+    {"the"=&amp;gt;2, "dog"=&amp;gt;1, "and"=&amp;gt;1, "cat"=&amp;gt;1}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Dangers of Ruby gems&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Some of the dangers of using gems is you are essentially trusting that the gem works as well as the it's developer. Asides from well-known and trusted developers, you don't essentially know who they are. As gems can run code on install, the risk is that gems can steal the unencrypted Rubygems.org credentials which can then be used to modify the compromised user's gems and spread malicious code. &lt;/p&gt;
+
+&lt;p&gt;It is also impossible to notify a gem user of compromised gems. When a gem developer’s credentials are compromised it is hard to notify anyone who uses any of the gems published by the developer of the situation.&lt;/p&gt;</content:encoded></item><item><title>Inheritance vs Composition</title><description>&lt;p&gt;What is the difference between Inheritance and Composition in Object-oriented programming? Why might using Composition be a better way to go?&lt;/p&gt;
 
 &lt;h6 id="inheritance"&gt;Inheritance&lt;/h6&gt;
 
