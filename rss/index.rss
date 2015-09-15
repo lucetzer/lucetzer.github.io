@@ -1,6 +1,14 @@
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>a_coding_story</title><description>My adventures with Makers Academy  
 
-</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Sat, 12 Sep 2015 10:53:06 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Blocks, Procs and Lambdas</title><description>&lt;p&gt;Blocks, procs and lambdas are ways we can group code that we wish to run. &lt;/p&gt;
+</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Tue, 15 Sep 2015 21:45:43 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Week 2: On the battlefield</title><description>&lt;p&gt;I survived week 2!! It's been a tough week as we've been given the challenge to build the battleships game from scratch. Before last week, I've never even played battleships despite having heard of the game many times! I downloaded the game on my phone to find out what this&lt;/p&gt;</description><link>http://localhost:2368/week-2-on-the-coding-battlefield/</link><guid isPermaLink="false">6404797b-1724-4783-a9bf-747decda97d9</guid><category>battleship</category><category>Makers Academy</category><dc:creator>Lucy Fang</dc:creator><pubDate>Tue, 15 Sep 2015 21:43:27 GMT</pubDate><media:content url="http://localhost:2368/content/images/2015/09/Screen-Shot-2015-09-14-at-11-36-33-pm.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2015/09/Screen-Shot-2015-09-14-at-11-36-33-pm.png" alt="Week 2: On the battlefield"&gt;&lt;p&gt;I survived week 2!! It's been a tough week as we've been given the challenge to build the battleships game from scratch. Before last week, I've never even played battleships despite having heard of the game many times! I downloaded the game on my phone to find out what this battle is all about. &lt;/p&gt;
+
+&lt;p&gt;The real battle of course of was actually building it! The course material was designed to make us think, research and decide how we want to build the most basic game first e.g. with one ship and one player and then slowly scale from there. This is part of the process of designing the minimum viable product however while that was useful, we did have to think about how our program can be extended to allow for multiple ships and two players. It may be a simple game but building something like this requires you to think logically about the various scenarios of the game. &lt;/p&gt;
+
+&lt;p&gt;One week later, I'm just really grateful that those ships are static! Throughout building this game, we are starting to get to know, understand and apply the SOLID principles of Object Oriented Design, all in a test-driven way of course. We've had plenty of research projects on various SOLID topics. &lt;a href="https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)"&gt;SOLID&lt;/a&gt; (stands for Single responsibility, Open-closed, Liskov substitution, Interface segregation and Dependency inversion) sets out the five principles of object oriented programming and design and is what we follow at Makers to ensure our code easy to maintain and extend. This week we've really focused on Single responsibility (one class should have only one job) and &lt;a href="http://lucetzer.github.io/solid-dependency-inversion/"&gt;Dependency inversion&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;We've continue to pair-program everyday and it's been very helpful. As we switch partners everyday, we are working with another set of code that may have been modelled differently. We always have to work with the code that's less developed so we can build this code back up, which helps to consolidate our learning and ensure we can explain our code to one another. &lt;/p&gt;
+
+&lt;p&gt;I've also had plenty of fun doing yoga, playing badminton and partying with fellow makers on Friday. See, life as a coder isn't all about being bound to the desk!&lt;/p&gt;</content:encoded></item><item><title>Blocks, Procs and Lambdas</title><description>&lt;p&gt;Blocks, procs and lambdas are ways we can group code that we wish to run. &lt;/p&gt;
 
 &lt;p&gt;A &lt;strong&gt;block&lt;/strong&gt; is a function and usually represented in curly braces. It is NOT an object and needs to be called by a method For example:&lt;/p&gt;
 
@@ -103,11 +111,10 @@ proc_test                 # calling proc_test prints nothing
     words_counted.store(word, words_counted[word] + 1) }
   words_counted
   byebug
+end
+
+word_count "The dog and the cat"
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;end&lt;/p&gt;
-
-&lt;p&gt;word_count "The dog and the cat"&lt;/p&gt;
 
 &lt;p&gt;Run this code in Terminal and you can see what each line of code is returning. &lt;/p&gt;
 
@@ -287,16 +294,16 @@ rand(400)
 
 &lt;p&gt;Here is an example without abstracting:&lt;/p&gt;
 
-&lt;p&gt;Suppose we have a Dog class that has a method called speak and another class named Wolf that has a bark method. &lt;/p&gt;
+&lt;p&gt;Suppose we have a Dog class that has a method called speak and another class named Wolf that has a bark method. The dog class calls on it's speak method instantiates a new Wolf and calls on it's bark method. But what if it's a different species that makes a different noise?&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;class Dog
+&lt;pre&gt;&lt;code&gt;class Animal
    def speak
-     Wolf.new.bark
+     Dog.new.noise
    end
 end
 
-class Wolf
-  def bark
+class Dog
+  def noise
     puts 'Bark!'
   end
 end  
@@ -304,20 +311,33 @@ end
 
 &lt;p&gt;This can be refactored using abstractions by:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;class Dog
-   def speak(breed)
-     breed.bark
+&lt;pre&gt;&lt;code&gt;class Animal
+   def speak(species)
+     species.noise
    end
 end
 
 class Wolf
-  def bark
-    puts 'Bark!'
+  def noise
+    puts 'Howl!'
   end
-end  
+end
+
+class Dog
+  def noise
+   puts 'Bark!'
+  end
+end
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This approach is better because if we wanted to use another breed class (lower-level module), such as Labrador, we can use the speak method inside the Dog class (higher-level module) by passing an instance of a new breed as an argument into the speak method instead of hard coding a different breed class into the speak method.  &lt;/p&gt;</content:encoded></item><item><title>W1: Test-Driven all the way</title><description>&lt;p&gt;First week at Makers has come to an end and it did not disappoint. It was absolutely jam-packed with learning opportunities and social activities. I had a fabulous time. &lt;/p&gt;
+&lt;p&gt;This approach is better because we won't need to change the code of the Animal class (high-level class) if we have a different species that "speak" differently. We can use the speak method inside the Animal class by passing an instance of a new breed as an argument. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;animal = Animal.new
+animal.speak(Wolf.new)
+Howl!
+animal.speak(Dog.new)
+Bark!
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>W1: Test-Driven all the way</title><description>&lt;p&gt;First week at Makers has come to an end and it did not disappoint. It was absolutely jam-packed with learning opportunities and social activities. I had a fabulous time. &lt;/p&gt;
 
 &lt;p&gt;After Day 1, it was straight down to the business of learning &lt;a href="http://lucetzer.github.io/tdd-and-red-green-cycle/"&gt;Test Driven Development&lt;/a&gt; and Object Oriented Design which is&lt;/p&gt;</description><link>http://localhost:2368/week-1-recap/</link><guid isPermaLink="false">18ff3219-e356-477a-81e3-7d336cdc9d4f</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Sun, 06 Sep 2015 17:44:58 GMT</pubDate><content:encoded>&lt;p&gt;First week at Makers has come to an end and it did not disappoint. It was absolutely jam-packed with learning opportunities and social activities. I had a fabulous time. &lt;/p&gt;
 
@@ -349,7 +369,7 @@ end
 
 &lt;p&gt;The other thing I want to mention is our stand-ups. We are split into different groups and twice a day, the group meets up. This is where we get the opportunity to ask questions on anything we don't understand. Our group coach then goes through it all with us in detail. It's a fantastic session and the coaches are just wonderful. They are able to explain concepts in a way that's easy to digest. I had Samm this week and I am in awe of the way he explains things. Not only is he extremely knowledgable but he is also very patient and approachable. Lucky us!&lt;/p&gt;
 
-&lt;p&gt;In other news, there's been a lot of pub nights. At this rate, I'm seriously going to get a beer gut. I think I need to just go on Fridays but even as I type this, I'm not confident that it will happen. :)&lt;/p&gt;</content:encoded></item><item><title>DAY 1 at Makers</title><description>&lt;p&gt;First day at Makers. It's finally here. I arrived at Makers early, full of excitement, curiosity and not knowing what the day will bring. Meeting my fellow cohort buddies was just awesome. EVERYONE is so lovely and excited to learn. We were all wondering what first day will bring? After&lt;/p&gt;</description><link>http://localhost:2368/day-1-at-makers/</link><guid isPermaLink="false">56b522d6-7cf1-49bb-a632-bd35cf79f0fb</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Thu, 03 Sep 2015 22:52:16 GMT</pubDate><content:encoded>&lt;p&gt;First day at Makers. It's finally here. I arrived at Makers early, full of excitement, curiosity and not knowing what the day will bring. Meeting my fellow cohort buddies was just awesome. EVERYONE is so lovely and excited to learn. We were all wondering what first day will bring? After all the introduction, are we going to pair-program today? What will be the challenge? What other surprises are there?&lt;/p&gt;
+&lt;p&gt;In other news, there's been a lot of pub nights. At this rate, I'm seriously going to get a beer gut. I think I need to just go on Fridays but even as I type this, I'm not confident that it will happen. :)&lt;/p&gt;</content:encoded></item><item><title>DAY 1 at Makers</title><description>&lt;p&gt;First day at Makers. It's finally here. I arrived at Makers early, full of excitement, curiosity and not knowing what the day will bring. Meeting my fellow cohort buddies was just awesome. EVERYONE is so lovely and excited to learn. We were all wondering what first day will bring? After&lt;/p&gt;</description><link>http://localhost:2368/day-1-at-makers/</link><guid isPermaLink="false">56b522d6-7cf1-49bb-a632-bd35cf79f0fb</guid><dc:creator>Lucy Fang</dc:creator><pubDate>Thu, 03 Sep 2015 22:52:16 GMT</pubDate><media:content url="http://localhost:2368/content/images/2015/09/Screen-Shot-2015-09-14-at-11-42-07-pm.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2015/09/Screen-Shot-2015-09-14-at-11-42-07-pm.png" alt="DAY 1 at Makers"&gt;&lt;p&gt;First day at Makers. It's finally here. I arrived at Makers early, full of excitement, curiosity and not knowing what the day will bring. Meeting my fellow cohort buddies was just awesome. EVERYONE is so lovely and excited to learn. We were all wondering what first day will bring? After all the introduction, are we going to pair-program today? What will be the challenge? What other surprises are there?&lt;/p&gt;
 
 &lt;p&gt;But first day was not what I expected. There was no coding! It was just a day dedicated to getting to know each other, meeting our coaches and understanding how the course will run for the next 12 weeks. There are around 34 people in the cohort, the biggest ever at Makers and we all played this name game where that allowed us all to remember EVERYONE'S name. It was brilliant and I won't spoil it for anyone who is thinking about joining Makers (just do it! :D). &lt;/p&gt;
 
@@ -405,7 +425,7 @@ end
 
 &lt;p&gt;It's important not to get confused between &lt;a href="https://git-scm.com/"&gt;Git&lt;/a&gt; and &lt;a href="https://github.com/"&gt;Github&lt;/a&gt;. They are different. Git is an open source version control system that allows you manage projects and keep track of it's changes on your computer. Github is a Git repository hosting service that allows you keep a copy of your code online so you can work and collaborate with others. Github isn't the only Git repo service available (e.g. Bitbucket) but it's a pretty damn good one from what I've seen and used so far.&lt;/p&gt;
 
-&lt;p&gt;Asides from Git and Github, I've been doing Josh Cheek's Ruby Kickstart and Chris Pine's Learn to Program. I find Chris Pine harder to understand  but it's a good workout on my brain. There's so much to cover so I better get back to it!&lt;/p&gt;</content:encoded></item><item><title>It's the start of something new...</title><description>&lt;p&gt;...for Lucy. That's me. I'm an Aussie traveller who decided to give up the comfortable Melbournian life for the hustle and bustle of London. Moving countries was certainly not easy but I think learning to code is even more of a challenge and this blog is about how I'm learning&lt;/p&gt;</description><link>http://localhost:2368/welcome-to-ghost/</link><guid isPermaLink="false">416e0067-d8e5-462a-8903-de27191f14b9</guid><category>Getting Started</category><dc:creator>Lucy Fang</dc:creator><pubDate>Thu, 13 Aug 2015 18:33:40 GMT</pubDate><content:encoded>&lt;p&gt;...for Lucy. That's me. I'm an Aussie traveller who decided to give up the comfortable Melbournian life for the hustle and bustle of London. Moving countries was certainly not easy but I think learning to code is even more of a challenge and this blog is about how I'm learning to be a developer with the help of &lt;a href="http://www.makersacademy.com/"&gt;Makers Academy&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Asides from Git and Github, I've been doing Josh Cheek's Ruby Kickstart and Chris Pine's Learn to Program. I find Chris Pine harder to understand  but it's a good workout on my brain. There's so much to cover so I better get back to it!&lt;/p&gt;</content:encoded></item><item><title>It's the start of something new...</title><description>&lt;p&gt;...for Lucy. That's me. I'm an Aussie traveller who decided to give up the comfortable Melbournian life for the hustle and bustle of London. Moving countries was certainly not easy but I think learning to code is even more of a challenge and this blog is about how I'm learning&lt;/p&gt;</description><link>http://localhost:2368/welcome-to-ghost/</link><guid isPermaLink="false">416e0067-d8e5-462a-8903-de27191f14b9</guid><category>Getting Started</category><dc:creator>Lucy Fang</dc:creator><pubDate>Thu, 13 Aug 2015 18:33:40 GMT</pubDate><media:content url="http://localhost:2368/content/images/2015/09/me.jpg" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2015/09/me.jpg" alt="It's the start of something new..."&gt;&lt;p&gt;...for Lucy. That's me. I'm an Aussie traveller who decided to give up the comfortable Melbournian life for the hustle and bustle of London. Moving countries was certainly not easy but I think learning to code is even more of a challenge and this blog is about how I'm learning to be a developer with the help of &lt;a href="http://www.makersacademy.com/"&gt;Makers Academy&lt;/a&gt;!&lt;/p&gt;
 
 &lt;h6 id="whydoiwanttocode"&gt;Why do I want to code?&lt;/h6&gt;
 
